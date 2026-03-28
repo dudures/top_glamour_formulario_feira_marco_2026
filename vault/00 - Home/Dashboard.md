@@ -19,7 +19,7 @@ tags: [dashboard, top-glamour]
 - [x] GitHub Pages ativo
 - [x] URL encurtada (bit.ly)
 - [x] QR Code gerado e impresso
-- [ ] Google Forms backup configurado
+- [x] Google Forms backup configurado
 - [ ] Leads exportados para Octadesk
 
 ## Notas
