@@ -1,0 +1,793 @@
+/* ============================================================
+   Top Glamour Viagens — Identidade Visual
+   Design: Luxury Travel · Boarding Pass Aesthetic
+   Paleta: Azul Profundo #1E2459 + Âmbar #D4912C + Cinza #B7AAAA
+   ============================================================ */
+
+/* ── Variáveis ─────────────────────────────────────────────── */
+:root {
+  --navy:        #1E2459;
+  --navy-dark:   #141840;
+  --navy-light:  #262d72;
+  --gold:        #D4912C;
+  --gold-bright: #E5A840;
+  --gold-pale:   #faf0dd;
+  --warm-gray:   #B7AAAA;
+  --black:       #0a0a0a;
+  --gray-mid:    #D0D0D0;
+  --gray-light:  #F5F4F2;
+  --white:       #FFFFFF;
+  --cream:       #FDFBF8;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', -apple-system, sans-serif;
+
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  20px;
+  --radius-xl:  28px;
+
+  --shadow-card: 0 20px 60px rgba(30, 36, 89, 0.18),
+                 0 4px 16px rgba(0,0,0,0.10);
+  --shadow-btn:  0 4px 20px rgba(212, 145, 44, 0.45);
+
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--black);
+  background: var(--navy);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Fundo com textura geométrica ──────────────────────────── */
+.page-bg {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 10%, rgba(255,255,255,0.05) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 85%, rgba(212,145,44,0.10) 0%, transparent 55%),
+    linear-gradient(160deg, var(--navy-dark) 0%, var(--navy) 60%, var(--navy-light) 100%);
+  z-index: 0;
+}
+
+/* Linhas de latitude/longitude sutis */
+.page-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,0.025) 0px,
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px,
+      transparent 60px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.025) 0px,
+      rgba(255,255,255,0.025) 1px,
+      transparent 1px,
+      transparent 60px
+    );
+}
+
+/* ── Wrapper ───────────────────────────────────────────────── */
+.view {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.view.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.view.exit {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.page-wrapper {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+}
+
+/* ── Header ────────────────────────────────────────────────── */
+.site-header {
+  text-align: center;
+  padding: 32px 0 24px;
+}
+
+.logo {
+  width: auto;
+  height: 90px;
+  max-width: 240px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 3px 12px rgba(0,0,0,0.35));
+}
+
+.logo-fallback {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.05em;
+}
+
+.header-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px auto 12px;
+  width: 140px;
+  color: var(--gold-bright);
+}
+
+.header-divider span:first-child,
+.header-divider span:last-child {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.diamond {
+  font-size: 0.6rem;
+  color: var(--gold);
+}
+
+.header-tagline {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+}
+
+/* ── Form Card ─────────────────────────────────────────────── */
+.form-main {
+  padding-bottom: 16px;
+}
+
+.form-card {
+  background: var(--cream);
+  border-radius: var(--radius-xl);
+  padding: 32px 24px 28px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Borda âmbar superior */
+.form-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--navy), var(--gold), var(--gold-bright), var(--gold), var(--navy));
+}
+
+/* ── Headline do card ──────────────────────────────────────── */
+.card-headline {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card-headline h1 {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.card-headline h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+}
+
+.card-subheadline {
+  margin-top: 10px;
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: #5a5a6e;
+  font-weight: 400;
+}
+
+.card-subheadline strong {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* ── Divisor estilo boarding pass ──────────────────────────── */
+.ticket-divider {
+  margin: 20px -24px;
+  padding: 0 8px;
+  opacity: 0.35;
+}
+
+.ticket-divider svg {
+  width: 100%;
+  height: 12px;
+  display: block;
+}
+
+/* ── Campos do formulário ─────────────────────────────────── */
+.field-group {
+  margin-bottom: 18px;
+}
+
+.field-group label,
+.label-section {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #444;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+.required {
+  color: #cc3333;
+  font-weight: 600;
+}
+
+.optional {
+  color: var(--gray-mid);
+  font-weight: 300;
+  text-transform: none;
+  font-size: 0.7rem;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  display: block;
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  font-family: var(--font-body);
+  font-size: 1rem; /* 16px mínimo — evita auto-zoom do iOS sem travar acessibilidade */
+  font-weight: 400;
+  color: var(--black);
+  background: var(--white);
+  border: 1.5px solid var(--gray-mid);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="text"]::placeholder,
+input[type="tel"]::placeholder,
+input[type="email"]::placeholder {
+  color: #bbb;
+  font-weight: 300;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(30, 36, 89, 0.14);
+}
+
+input.invalid {
+  border-color: #cc3333;
+  box-shadow: 0 0 0 3px rgba(204, 51, 51, 0.1);
+}
+
+.field-error {
+  display: block;
+  font-size: 0.72rem;
+  color: #cc3333;
+  margin-top: 5px;
+  min-height: 16px;
+  font-weight: 400;
+}
+
+/* ── Radio buttons (LGPD autoriza) ────────────────────────── */
+.field-group--radio .label-section {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 12px;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #333;
+  padding: 10px 16px;
+  border: 1.5px solid var(--gray-mid);
+  border-radius: var(--radius-md);
+  flex: 1;
+  transition: border-color var(--transition), background var(--transition);
+  position: relative;
+}
+
+.radio-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-custom {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--gray-mid);
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.radio-custom::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--navy);
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.radio-option:has(input:checked) {
+  border-color: var(--navy);
+  background: rgba(30, 36, 89, 0.05);
+}
+
+.radio-option:has(input:checked) .radio-custom {
+  border-color: var(--navy);
+}
+
+.radio-option:has(input:checked) .radio-custom::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Checkboxes (canais promo) ─────────────────────────────── */
+.field-group--check {
+  background: var(--gray-light);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.check-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.check-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  color: #333;
+  font-weight: 400;
+}
+
+.check-option input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.check-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gray-mid);
+  border-radius: 5px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.check-custom::after {
+  content: '✓';
+  font-size: 0.7rem;
+  color: var(--white);
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.check-option:has(input:checked) .check-custom {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.check-option:has(input:checked) .check-custom::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── LGPD notice ───────────────────────────────────────────── */
+.lgpd-notice {
+  font-size: 0.68rem;
+  color: #999;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 0 8px;
+}
+
+/* ── Botão submit ──────────────────────────────────────────── */
+.btn-primary {
+  display: block;
+  width: 100%;
+  height: 54px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: var(--shadow-btn);
+  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.btn-primary:hover::before { opacity: 1; }
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(116, 70, 20, 0.5);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-loading { display: none; align-items: center; justify-content: center; gap: 8px; }
+.btn-primary.loading .btn-text { display: none; }
+.btn-primary.loading .btn-loading { display: flex; }
+
+/* Spinner */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: var(--white);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── TELA DE SUCESSO ───────────────────────────────────────── */
+.page-wrapper--success {
+  padding-top: 0;
+  padding-bottom: 48px;
+  max-width: 480px;
+}
+
+/* Header da tela de sucesso — logo em destaque */
+.site-header--success {
+  padding: 20px 0 24px;
+  text-align: center;
+}
+
+/* Selo de confirmação — acima da logo */
+.success-stamp {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 0 0 6px rgba(212,145,44,0.18), 0 8px 24px rgba(212,145,44,0.45);
+  animation: stampIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+}
+
+@keyframes stampIn {
+  from { transform: scale(0.4) rotate(-15deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.stamp-icon {
+  font-size: 1.7rem;
+  color: var(--white);
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Logo grande na tela de sucesso */
+.logo--success {
+  height: 100px;
+  max-width: 260px;
+  width: auto;
+  display: block;
+  margin: 0 auto 20px;
+  filter: drop-shadow(0 4px 16px rgba(0,0,0,0.35));
+  animation: fadeUp 0.5s ease 0.2s both;
+}
+
+.logo-fallback-success {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  display: block;
+  margin-bottom: 16px;
+  animation: fadeUp 0.5s ease 0.2s both;
+}
+
+.success-headline {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  animation: fadeUp 0.5s ease 0.3s both;
+}
+
+.success-subhead {
+  font-size: 0.86rem;
+  color: var(--warm-gray);
+  line-height: 1.65;
+  font-weight: 400;
+  animation: fadeUp 0.5s ease 0.4s both;
+}
+
+.success-main {
+  padding: 0 4px;
+  animation: fadeUp 0.5s ease 0.45s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Links do sucesso ──────────────────────────────────────── */
+.success-links {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-xl);
+  padding: 20px 16px 24px;
+  text-align: left;
+}
+
+.links-block {
+  margin-bottom: 20px;
+}
+
+.links-block:last-child {
+  margin-bottom: 0;
+}
+
+.links-block-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-bottom: 10px;
+  padding-left: 2px;
+}
+
+/* Botões de link */
+.link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.link-btn:active {
+  transform: scale(0.97);
+  opacity: 0.85;
+}
+
+.link-btn--instagram {
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  color: var(--white);
+}
+
+.link-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.link-btn--site {
+  background: rgba(255,255,255,0.12);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.link-btn--whatsapp {
+  background: #25D366;
+  color: var(--white);
+}
+
+/* Grupos de cidades */
+.city-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.city-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;          /* área de toque maior para mobile */
+  min-height: 52px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.city-link:active {
+  background: rgba(255,255,255,0.16);
+  border-color: rgba(255,255,255,0.25);
+}
+
+@media (hover: hover) {
+  .city-link:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.22);
+  }
+}
+
+.city-flag {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.city-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--white);
+  flex: 1;
+}
+
+.city-arrow {
+  font-size: 1.2rem;
+  color: var(--gold);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Footer do sucesso */
+.success-footer {
+  font-size: 0.68rem;
+  color: var(--warm-gray);
+  opacity: 0.7;
+  text-align: center;
+  margin-top: 24px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Acessibilidade: foco visível ──────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 2px;
+}
+
+/* ── Media queries ─────────────────────────────────────────── */
+@media (min-width: 480px) {
+  .form-card {
+    padding: 40px 32px 36px;
+  }
+
+  .card-headline h1 {
+    font-size: 2.1rem;
+  }
+
+  .ticket-divider {
+    margin: 24px -32px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Preserva o design claro do card mesmo em dark mode do sistema */
+  .form-card {
+    background: var(--cream);
+    color: var(--black);
+  }
+}
+
+/* ── Animação de entrada do card ───────────────────────────── */
+.form-card {
+  animation: cardIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

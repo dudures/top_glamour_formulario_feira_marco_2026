@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#161DA1">
+  <title>Top Glamour Viagens · Participe do Sorteio</title>
+
+  <!-- Google Fonts: Cormorant Garamond (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       TELA 1 — FORMULÁRIO
+  ════════════════════════════════════════════ -->
+  <div id="view-form" class="view active">
+
+    <div class="page-bg"></div>
+
+    <div class="page-wrapper">
+
+      <!-- HEADER -->
+      <header class="site-header">
+        <img
+          src="assets/logo%20branca.png"
+          alt="Top Glamour Viagens"
+          class="logo"
+          onerror="this.style.display='none'; document.querySelector('.logo-fallback').style.display='block';"
+        >
+        <span class="logo-fallback" style="display:none;">Top Glamour Viagens</span>
+
+        <div class="header-divider">
+          <span></span><span class="diamond">✦</span><span></span>
+        </div>
+
+        <p class="header-tagline">Sorteio Especial · Evento 2026</p>
+      </header>
+
+      <!-- CARD DO FORMULÁRIO -->
+      <main class="form-main">
+        <div class="form-card">
+
+          <div class="card-headline">
+            <h1>Concorra a uma viagem<br><em>dos sonhos</em></h1>
+            <p class="card-subheadline">
+              Preencha o formulário, confirme sua participação no sorteio
+              e siga <strong>@topglamourviagens</strong> para receber as melhores promoções em primeira mão.
+            </p>
+          </div>
+
+          <div class="ticket-divider">
+            <svg viewBox="0 0 300 12" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="6" cy="6" r="6" fill="var(--navy)"/>
+              <line x1="12" y1="6" x2="288" y2="6" stroke="var(--navy)" stroke-width="1.5" stroke-dasharray="6 4"/>
+              <circle cx="294" cy="6" r="6" fill="var(--navy)"/>
+            </svg>
+          </div>
+
+          <form id="lead-form" novalidate>
+
+            <!-- Nome -->
+            <div class="field-group">
+              <label for="nome">Nome completo <span class="required">*</span></label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Seu nome completo"
+                autocomplete="name"
+                required
+              >
+              <span class="field-error" id="error-nome"></span>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="field-group">
+              <label for="whatsapp">WhatsApp <span class="required">*</span></label>
+              <input
+                type="tel"
+                id="whatsapp"
+                name="whatsapp"
+                placeholder="(00) 00000-0000"
+                autocomplete="tel"
+                inputmode="numeric"
+                maxlength="15"
+                required
+              >
+              <span class="field-error" id="error-whatsapp"></span>
+            </div>
+
+            <!-- E-mail -->
+            <div class="field-group">
+              <label for="email">E-mail <span class="required">*</span></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="seu@email.com"
+                autocomplete="email"
+                inputmode="email"
+                required
+              >
+              <span class="field-error" id="error-email"></span>
+            </div>
+
+            <!-- Cidade / Estado -->
+            <div class="field-group">
+              <label for="cidade">Cidade / Estado <span class="required">*</span></label>
+              <input
+                type="text"
+                id="cidade"
+                name="cidade"
+                placeholder="Ex: Salvador / BA"
+                autocomplete="address-level2"
+                required
+              >
+              <span class="field-error" id="error-cidade"></span>
+            </div>
+
+            <!-- Cidade que sonha conhecer -->
+            <div class="field-group">
+              <label for="sonha">Cidade que sonha conhecer</label>
+              <input
+                type="text"
+                id="sonha"
+                name="sonha"
+                placeholder="Ex: Paris, Cancún, Dubai…"
+              >
+            </div>
+
+            <!-- LGPD — Autorização de contato -->
+            <div class="field-group field-group--radio">
+              <label class="label-section">
+                Autoriza a Top Glamour Viagens a entrar em contato
+                com ofertas, novidades e condições especiais? <span class="required">*</span>
+              </label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="autoriza" value="Sim" required>
+                  <span class="radio-custom"></span>
+                  Sim, autorizo
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="autoriza" value="Não">
+                  <span class="radio-custom"></span>
+                  Não autorizo
+                </label>
+              </div>
+              <span class="field-error" id="error-autoriza"></span>
+            </div>
+
+            <!-- LGPD — Canais preferidos -->
+            <div class="field-group field-group--check">
+              <label class="label-section">Prefiro receber promoções por: <span class="optional">(opcional)</span></label>
+              <div class="check-group">
+                <label class="check-option">
+                  <input type="checkbox" id="promoWhatsapp" name="promoWhatsapp">
+                  <span class="check-custom"></span>
+                  WhatsApp
+                </label>
+                <label class="check-option">
+                  <input type="checkbox" id="promoEmail" name="promoEmail">
+                  <span class="check-custom"></span>
+                  E-mail
+                </label>
+              </div>
+            </div>
+
+            <!-- LGPD Notice -->
+            <p class="lgpd-notice">
+              Seus dados são protegidos pela LGPD (Lei nº 13.709/2018)
+              e usados exclusivamente pela Top Glamour Viagens.
+            </p>
+
+            <!-- Botão submit -->
+            <button type="submit" id="btn-submit" class="btn-primary">
+              <span class="btn-text">✈ Quero Participar do Sorteio</span>
+              <span class="btn-loading" aria-hidden="true">
+                <span class="spinner"></span> Enviando…
+              </span>
+            </button>
+
+          </form>
+
+        </div><!-- /form-card -->
+      </main>
+
+    </div><!-- /page-wrapper -->
+  </div><!-- /view-form -->
+
+
+  <!-- ═══════════════════════════════════════════
+       TELA 2 — SUCESSO
+  ════════════════════════════════════════════ -->
+  <div id="view-success" class="view" style="display:none;">
+
+    <div class="page-bg"></div>
+
+    <div class="page-wrapper page-wrapper--success">
+
+      <!-- HEADER SUCESSO — logo em destaque -->
+      <header class="site-header site-header--success">
+        <div class="success-stamp">
+          <div class="stamp-icon">✓</div>
+        </div>
+
+        <img
+          src="assets/logo%20branca.png"
+          alt="Top Glamour Viagens"
+          class="logo logo--success"
+          onerror="this.style.display='none'; document.querySelector('.logo-fallback-success').style.display='block';"
+        >
+        <span class="logo-fallback-success" style="display:none;">Top Glamour Viagens</span>
+
+        <h2 class="success-headline">Participação confirmada.</h2>
+        <p class="success-subhead">
+          Procure a promoter para receber seu número do sorteio.<br>
+          Enquanto isso, entre no grupo da sua cidade.<br>
+          As melhores promoções chegam por lá primeiro.
+        </p>
+      </header>
+
+      <main class="success-main">
+
+        <!-- LINKS SECTION -->
+        <div class="success-links">
+
+          <!-- Siga-nos -->
+          <div class="links-block">
+            <p class="links-block-title">📷 Siga no Instagram</p>
+            <a
+              href="https://instagram.com/topglamourviagens"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-btn link-btn--instagram"
+            >
+              @topglamourviagens
+            </a>
+          </div>
+
+          <!-- Site & Atendimento -->
+          <div class="links-block">
+            <p class="links-block-title">🌐 Site e atendimento</p>
+            <div class="link-row">
+              <a
+                href="https://topglamourviagens.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="link-btn link-btn--site"
+              >
+                Site Oficial
+              </a>
+              <a
+                href="https://wa.me/557184688744"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="link-btn link-btn--whatsapp"
+              >
+                💬 Atendimento
+              </a>
+            </div>
+          </div>
+
+          <!-- Grupos por cidade -->
+          <div class="links-block">
+            <p class="links-block-title">🛫 Escolha o grupo da sua cidade</p>
+            <div class="city-groups">
+
+              <a href="https://chat.whatsapp.com/Juf8yIzLcLQFvzmrbOWNQM?mode=gi_t"
+                 target="_blank" rel="noopener noreferrer" class="city-link">
+                <span class="city-flag">🇧🇷</span>
+                <span class="city-name">Salvador</span>
+                <span class="city-arrow">›</span>
+              </a>
+
+              <a href="https://chat.whatsapp.com/DF2NVp2SAOa0tD63PU6rHw?mode=gi_t"
+                 target="_blank" rel="noopener noreferrer" class="city-link">
+                <span class="city-flag">🇧🇷</span>
+                <span class="city-name">Aracaju</span>
+                <span class="city-arrow">›</span>
+              </a>
+
+              <a href="https://chat.whatsapp.com/GxVkTnA2pDd2uXMsLoy2TW?mode=gi_t"
+                 target="_blank" rel="noopener noreferrer" class="city-link">
+                <span class="city-flag">🇧🇷</span>
+                <span class="city-name">Foz do Iguaçu</span>
+                <span class="city-arrow">›</span>
+              </a>
+
+              <a href="https://chat.whatsapp.com/ElTnbejTkyCJglzLoTpmfy?mode=gi_t"
+                 target="_blank" rel="noopener noreferrer" class="city-link">
+                <span class="city-flag">🇧🇷</span>
+                <span class="city-name">São Paulo</span>
+                <span class="city-arrow">›</span>
+              </a>
+
+              <a href="https://chat.whatsapp.com/GOdlIWt3b4B5sxsySaAvIr?mode=gi_t"
+                 target="_blank" rel="noopener noreferrer" class="city-link">
+                <span class="city-flag">🇧🇷</span>
+                <span class="city-name">Brasília &amp; Goiânia</span>
+                <span class="city-arrow">›</span>
+              </a>
+
+              <a href="https://chat.whatsapp.com/KvyMjviXttV76OnWbZhkPH?mode=gi_t"
+                 target="_blank" rel="noopener noreferrer" class="city-link">
+                <span class="city-flag">🇧🇷</span>
+                <span class="city-name">Rio de Janeiro</span>
+                <span class="city-arrow">›</span>
+              </a>
+
+              <a href="https://chat.whatsapp.com/Hzba1uJJryTJyztBHJkNGg?mode=gi_t"
+                 target="_blank" rel="noopener noreferrer" class="city-link">
+                <span class="city-flag">🇧🇷</span>
+                <span class="city-name">Recife &amp; João Pessoa</span>
+                <span class="city-arrow">›</span>
+              </a>
+
+              <a href="https://chat.whatsapp.com/HRuPXrGvEz2AArh25Z1m1f?mode=gi_t"
+                 target="_blank" rel="noopener noreferrer" class="city-link">
+                <span class="city-flag">🇧🇷</span>
+                <span class="city-name">Curitiba</span>
+                <span class="city-arrow">›</span>
+              </a>
+
+            </div>
+          </div>
+
+        </div><!-- /success-links -->
+
+        <p class="success-footer">
+          Top Glamour Viagens · Viagens personalizadas para quem quer mais que um destino
+        </p>
+
+      </main>
+    </div>
+  </div><!-- /view-success -->
+
+  <script src="script.js"></script>
+</body>
+</html>
