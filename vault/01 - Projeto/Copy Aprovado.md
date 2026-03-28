@@ -6,7 +6,7 @@ tags: [copy, texto, aprovado]
 
 ## Formulário
 
-- **Headline:** Concorra a uma viagem *dos sonhos*
+- **Headline:** Concorra a uma *mala de viagens*
 - **Subtítulo:** Preencha o formulário, confirme sua participação no sorteio e siga **@topglamourviagens** para receber as melhores promoções em primeira mão.
 - **Botão:** ✈ Quero Participar do Sorteio
 - **Tagline header:** Sorteio Especial · Evento 2026
