@@ -6,7 +6,7 @@ tags: [projeto, arquitetura, técnico]
 
 ## Fluxo principal
 
-QR Code → bit.ly/topglamour2026 → GitHub Pages → GAS Web App → Google Sheets
+QR Code → formulariosorteio.topglamourviagens.com.br → GitHub Pages (org topglamourviagens-hue) → GAS Web App → Google Sheets
 
 ## Arquivos
 
