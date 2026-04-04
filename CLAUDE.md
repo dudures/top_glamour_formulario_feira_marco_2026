@@ -64,10 +64,12 @@ Substitui formulário em papel por QR Code → formulário mobile → Google She
 - WhatsApp atendimento: `https://wa.me/557184688744`
 - Grupos por cidade: Salvador, Aracaju, Foz do Iguaçu, São Paulo, Brasília/Goiânia, Rio de Janeiro, Recife/João Pessoa, Curitiba
 
-## Próximos Passos (deploy)
+## Deploy — ATUALIZADO (2026-04-04)
 
-1. Redeploy do Apps Script (Code.gs foi atualizado)
-2. Push para GitHub → ativar GitHub Pages
-3. Encurtar URL com bit.ly
-4. Gerar QR Code com cor `#1E2459` em qrcode-monkey.com
-5. Salvar link do Google Forms backup no celular da promoter
+- [x] Apps Script redeploy (LockService + token + onFormSubmit fix)
+- [x] Repositório migrado para organização: `github.com/topglamourviagens-hue/top_glamour_formulario_feira_marco_2026`
+- [x] GitHub Pages: `https://topglamourviagens-hue.github.io/top_glamour_formulario_feira_marco_2026/`
+- [x] Subdomínio configurado: `https://formulariosorteio.topglamourviagens.com.br` (CNAME + DNS Turbo Cloud)
+- [x] URL encurtada (antiga): `https://bit.ly/topglamour2026` — atualizar para novo domínio
+- [x] QR Code gerado (logo centralizada, fundo branco) — salvo em `docs/qrcode.png` — **regenerar com nova URL**
+- [ ] Google Forms backup salvo no celular da promoter
